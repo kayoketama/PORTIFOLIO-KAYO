@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAYO | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== Fix: Portfolio section not showing + make boxes bigger ===== */
+        .portfolio-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+            gap: 35px !important;
+            width: 100%;
+            margin-top: 40px;
+        }
+
+        .portfolio-item {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.25);
+        }
+
+        .portfolio-image {
+            position: relative;
+            width: 100%;
+            height: 380px;           /* bigger box */
+            min-height: 320px;
+            overflow: hidden;
+            border-radius: 16px;
+            background: #1e1e2f;     /* fallback background so empty box never looks "invisible" */
+        }
+
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-item:hover .portfolio-image img {
+            transform: scale(1.08);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex !important;
+            align-items: flex-end;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.15) 60%, transparent 100%);
+            opacity: 1;               /* always visible so content never disappears */
+            padding: 25px;
+        }
+
+        .overlay-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .overlay-content p {
+            font-size: 0.95rem;
+            color: #e2e2e2;
+            margin-bottom: 14px;
+        }
+
+        .overlay-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #6366f1;
+            color: #fff;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .btn-icon:hover {
+            background: #8b5cf6;
+        }
+
+        @media (max-width: 480px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .portfolio-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="#">KAYO<span>.</span></a>
+            </div>
+            <nav class="nav-bar">
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Hi, I'm <span class="highlight">KAYO</span></h1>
+                <p class="hero-subtitle">A <span class="typing-text"> </span><span class="cursor">|</span></p>
+                <p class="hero-description">Passionate frontend developer creating dynamic, responsive, and user-friendly websites. I transform ideas into reality through clean code and creative design.</p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn btn-primary">View My Work <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn btn-secondary">Hire Me <i class="fas fa-envelope"></i></a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/kayoketama/PORTIFOLIO-KAYO/commit/9e17563639d7066855dec6840dd4d82fae10acee" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                    <a href="https://wellfound.com/u/kayo-ketama" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-codepen"></i></a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <img src="KAYO.jpg" alt="Kayo Ketama">
+                    <div class="image-glow"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <a href="#about"><i class="fas fa-chevron-down"></i></a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About <span class="highlight">Me</span></h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="KAYO.jpg" alt="About Kayo">
+                    <div class="experience-badge">
+                        <span>2+</span>
+                        <p>Years Experience</p>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Frontend Developer &amp; UI/UX Enthusiast</h3>
+                    <p>Hello! I'm <span class="highlight">KAYO KETAMA</span>, a passionate frontend developer based in Ethiopia. I specialize in creating dynamic, responsive, and user-friendly websites that deliver exceptional user experiences.</p>
+                    <p>With expertise in HTML, CSS, JavaScript, and modern frameworks, I enjoy transforming creative ideas into functional, high-quality digital solutions. I'm always eager to learn new technologies and tackle challenging projects.</p>
+                    <div class="about-info">
+                        <div class="info-item">
+                            <i class="fas fa-user"></i>
+                            <div>
+                                <strong>Name:</strong>
+                                <span>Kayo Ketama</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Location:</strong>
+                                <span>Ethiopia</span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email:</strong>
+                                <span><a href="mailto:Kayoketama@gmail.com">Kayoketama@gmail.com</a></span>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-briefcase"></i>
+                            <div>
+                                <strong>Availability:</strong>
+                                <span>Open for projects</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="Kayo_Ketama_Resume.pdf" download class="btn btn-primary">Download CV <i class="fas fa-download"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">My <span class="highlight">Skills</span></h2>
+            <p class="section-description">Technologies and tools I work with</p>
+
+            <div class="skills-grid">
+                <!-- Skill Card 1 -->
+                <div class="skill-card" data-tilt>
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Building responsive, user-friendly websites using HTML5, CSS3, JavaScript, and modern frameworks like React.</p>
+                    <div class="skill-progress">
+                        <div class="progress-bar" style="width: 95%"></div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 2 -->
+                <div class="skill-card" data-tilt>
+                    <div class="skill-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>Designing intuitive interfaces with Figma and Adobe XD that deliver excellent user experiences.</p>
+                    <div class="skill-progress">
+                        <div class="progress-bar" style="width: 85%"></div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 3 -->
+                <div class="skill-card" data-tilt>
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Database Management</h3>
+                    <p>Experience managing relational databases like MySQL and integrating them into web applications.</p>
+                    <div class="skill-progress">
+                        <div class="progress-bar" style="width: 80%"></div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 4 -->
+                <div class="skill-card" data-tilt>
+                    <div class="skill-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>SEO Optimization</h3>
+                    <p>Implementing effective SEO strategies to ensure websites rank higher on search engines.</p>
+                    <div class="skill-progress">
+                        <div class="progress-bar" style="width: 75%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-stack">
+                <h4>Technologies I Use</h4>
+                <div class="tech-icons">
+                    <i class="fab fa-html5" title="HTML5"></i>
+                    <i class="fab fa-css3-alt" title="CSS3"></i>
+                    <i class="fab fa-js" title="JavaScript"></i>
+                    <i class="fab fa-react" title="React"></i>
+                    <i class="fab fa-git-alt" title="Git"></i>
+                    <i class="fab fa-node-js" title="Node.js"></i>
+                    <i class="fab fa-figma" title="Figma"></i>
+                    <i class="fas fa-database" title="MySQL"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2 class="section-title">My <span class="highlight">Portfolio</span></h2>
+            <p class="section-description">Here are some of my recent projects</p>
+
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Dev</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+                <button class="filter-btn" data-filter="app">Apps</button>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-image">
+                        <img src="https://via.placeholder.com/400x300/6366f1/ffffff?text=E-Commerce+Site" alt="E-Commerce Platform project" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300/6366f1/ffffff?text=E-Commerce';">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h3>E-Commerce Platform</h3>
+                                <p>Full-featured online store with payment integration</p>
+                                <div class="overlay-links">
+                                    <a href="https://github.com/kayoketama/PORTIFOLIO-KAYO/commit/9e17563639d7066855dec6840dd4d82fae10acee" target="_blank" rel="noopener" class="btn-icon" aria-label="View code on GitHub"><i class="fas fa-eye"></i></a>
+                                    <a href="https://github.com/kayoketama/PORTIFOLIO-KAYO/commit/9e17563639d7066855dec6840dd4d82fae10acee" target="_blank" rel="noopener" class="btn-icon" aria-label="View on GitHub"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-item" data-category="design">
+                    <div class="portfolio-image">
+                        <img src="https://via.placeholder.com/400x300/8b5cf6/ffffff?text=Mobile+App+UI" alt="Mobile App UI project" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300/8b5cf6/ffffff?text=Mobile+UI';">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h3>Mobile App UI</h3>
+                                <p>Modern UI design for fitness tracking application</p>
+                                <div class="overlay-links">
+                                    <a href="https://github.com/kayoketama/PORTIFOLIO-KAYO/commit/9e17563639d7066855dec6840dd4d82fae10acee" target="_blank" rel="noopener" class="btn-icon" aria-label="View code on GitHub"><i class="fas fa-eye"></i></a>
+                                    <a href="https://github.com/kayoketama/PORTIFOLIO-KAYO/commit/9e17563639d7066855dec6840dd4d82fae10acee" target="_blank" rel="noopener" class="btn-icon" aria-label="View on GitHub"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-image">
+                        <img src="https://via.placeholder.com/400x300/a78bfa/ffffff?text=Dashboard" alt="Analytics Dashboard project" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300/a78bfa/ffffff?text=Dashboard';">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h3>Analytics Dashboard</h3>
+                                <p>Interactive data visualization dashboard with React</p>
+                                <div class="overlay-links">
+                                    <a href="https://github.com/kayoketama/PORTIFOLIO-KAYO/commit/9e17563639d7066855dec6840dd4d82fae10acee" target="_blank" rel="noopener" class="btn-icon" aria-label="View code on GitHub"><i class="fas fa-eye"></i></a>
+                                    <a href="https://github.com/kayoketama/PORTIFOLIO-KAYO/commit/9e17563639d7066855dec6840dd4d82fae10acee" target="_blank" rel="noopener" class="btn-icon" aria-label="View on GitHub"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 4 -->
+                <div class="portfolio-item" data-category="app">
+                    <div class="portfolio-image">
+                        <img src="https://via.placeholder.com/400x300/c4b5fd/ffffff?text=Task+Manager" alt="Task Manager App project" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300/c4b5fd/ffffff?text=Task+Manager';">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h3>Task Manager App</h3>
+                                <p>Cross-platform productivity application</p>
+                                <div class="overlay-links">
+                                    <a href="https://github.com/kayoketama/PORTIFOLIO-KAYO/commit/9e17563639d7066855dec6840dd4d82fae10acee" target="_blank" rel="noopener" class="btn-icon" aria-label="View code on GitHub"><i class="fas fa-eye"></i></a>
+                                    <a href="https://github.com/kayoketama/PORTIFOLIO-KAYO/commit/9e17563639d7066855dec6840dd4d82fae10acee" target="_blank" rel="noopener" class="btn-icon" aria-label="View on GitHub"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 5: Scientific Calculator -->
+                <div class="portfolio-item" data-category="app">
+                    <div class="portfolio-image">
+                        <img src="https://via.placeholder.com/400x300/6366f1/ffffff?text=Scientific+Calculator" alt="Scientific Calculator project" onerror="this.onerror=null;this.src='https://via.placeholder.com/400x300/6366f1/ffffff?text=Calculator';">
+                        <div class="portfolio-overlay">
+                            <div class="overlay-content">
+                                <h3>Scientific Calculator</h3>
+                                <p>Full-function scientific calculator built with vanilla JavaScript, supporting trigonometric, logarithmic, and memory operations</p>
+                                <div class="overlay-links">
+                                    <a href="calculator.html" class="btn-icon" aria-label="Open live calculator"><i class="fas fa-eye"></i></a>
+                                    <a href="https://github.com/kayoketama/scientific-calculator/blob/main/index.html" target="_blank" rel="noopener" class="btn-icon" aria-label="View code on GitHub"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="https://github.com/kayoketama/PORTIFOLIO-KAYO/commit/9e17563639d7066855dec6840dd4d82fae10acee" target="_blank" rel="noopener" class="btn btn-secondary">View All Projects <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
+            <p class="section-description">Have a project in mind? Let's work together!</p>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Ambo, Ethiopia</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:Kayoketama@gmail.com">Kayoketama@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p><a href="tel:+251930589500">+251 930589500</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Subject">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#">KAYO<span>.</span></a>
+                    <p>Creating digital experiences that matter.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/kayoketama/PORTIFOLIO-KAYO/commit/9e17563639d7066855dec6840dd4d82fae10acee" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                    <a href="https://wellfound.com/u/kayo-ketama" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 KAYO Ketama. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+    <script>
+        // Fallback portfolio filter (works even if script.js doesn't handle it)
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const items = document.querySelectorAll('.portfolio-item');
+
+            filterBtns.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    filterBtns.forEach(function (b) { b.classList.remove('active'); });
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+                    items.forEach(function (item) {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
